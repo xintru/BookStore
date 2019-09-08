@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+.Controls {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 30%;
+  margin: auto;
+  font-weight: bold;
+  font-size: 22px;
+  font-family: 'Lato', sans-serif;
+}
+
+.Controls input {
+  width: 60px;
+  text-align: center;
+  border-radius: 5px;
+  font: inherit;
+  font-size: 18px;
+  border: none;
+}
+
+.Controls .MoreLess {
+  display: inline-block;
+  width: 40px;
+  height: 30px;
+  background-color: #ff7c11;
+  color: white;
+  border-radius: 5px;
+  font: inherit;
+  text-align: center;
+  vertical-align: middle;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.397);
+          box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.397);
+}
+
+.AddToCart button {
+  margin-top: 20px;
+  width: 150px;
+  height: 40px;
+  background-color: #ff7c11;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.397);
+          box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.397);
+}
+/*# sourceMappingURL=CartControls.module.css.map */

@@ -1,0 +1,43 @@
+@import url("https://fonts.googleapis.com/css?family=Manjari&display=swap");
+.Header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 50px;
+  background-color: #ff7c11;
+  -webkit-box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.466);
+          box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.466);
+  position: relative;
+}
+
+.Header .Cart {
+  margin-left: 73%;
+  min-width: 100px;
+  height: 80%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 24px;
+  -webkit-box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.295);
+          box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.295);
+  background-color: #eee;
+  border-radius: 5px;
+}
+
+.Header h1 {
+  margin-left: -60%;
+  font-family: 'Manjari', sans-serif;
+  margin-top: 35px;
+}
+/*# sourceMappingURL=App.module.css.map */
