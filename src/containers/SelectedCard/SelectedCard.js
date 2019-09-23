@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-import classes from './SelectedCard.module.css'
+import classes from './SelectedCard.module.scss'
 import CartControls from '../../components/CartControls/CartControls';
 import {addToCart} from '../../store/actions/actions'
 
@@ -41,11 +41,7 @@ class selectedCard extends Component {
                 <section className={classes.OtherInfo}>
                     <h3>{this.props.subtitle}</h3>
                     <p>
-                        Some other info that could be provided for the book. I could look it up by myself and hardcode it, but hardcoding is bad.
-                        Oh well, at least i can now show off, that i know english quite well.
-                    </p>
-                    <p>
-                        Do you know what is the difference between a muffin and a cupcake? Ask me during our interview if only i'm getting invited after this one.
+                        Some other info that could be provided for the book.
                     </p>
                     <p className={classes.Price}>Price: {this.props.price} $</p>
                     <section className={classes.CartControls}>

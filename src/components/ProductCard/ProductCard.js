@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from './ProductCard.module.css'
+import classes from './ProductCard.module.scss'
 
 // Карточки из GET запроса
 

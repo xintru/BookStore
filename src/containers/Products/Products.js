@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 import Spinner from '../../components/UI/Spinner/Spinner';
 import ProductCard from '../../components/ProductCard/ProductCard';
-import classes from './Products.module.css'
+import classes from './Products.module.scss'
 import Modal from '../../components/UI/Modal/Modal';
 import SelectedCard from '../SelectedCard/SelectedCard';
 
@@ -14,17 +14,17 @@ import SelectedCard from '../SelectedCard/SelectedCard';
 class Products extends Component {
 
     state = {
-        showModal: false,
+        showSelectedCard: false,
         currentCard: {}
     }
     
-    showModal = ( index ) => {
+    showSelectedCard = ( index ) => {
         this.setState({currentCard: this.props.data[index]})
-        this.setState({showModal: true});
+        this.setState({showSelectedCard: true});
     }
 
-    hideModal = () => {
-        this.setState({showModal: false})
+    hideSelectedCard= () => {
+        this.setState({showSelectedCard: false})
         this.setState({currentCard: {}})
     }
 
@@ -34,7 +34,7 @@ class Products extends Component {
             products = this.props.data.map((product, i) => <ProductCard img={product.image}
                                                                         key={product.isbn13}
                                                                         title={product.title}
-                                                                        showModal={this.showModal}
+                                                                        showModal={this.showSelectedCard}
                                                                         index={i} />);
         }
 
@@ -42,20 +42,19 @@ class Products extends Component {
             products = <Spinner />
         }
 
-        const modal = this.state.showModal ? 
-        <Modal show={this.state.showModal} hide={this.hideModal}>
-            <SelectedCard title={this.state.currentCard.title}
-                            img={this.state.currentCard.image}
-                            subtitle={this.state.currentCard.subtitle}
-                            price={this.state.currentCard.price}
-                            url={this.state.currentCard.url}
-                            hide={this.hideModal}
-                             />
-        </Modal> : null;
+        const selectedCard = <Modal show={this.state.showSelectedCard} hide={this.hideSelectedCard}>
+                                <SelectedCard title={this.state.currentCard.title}
+                                    img={this.state.currentCard.image}
+                                    subtitle={this.state.currentCard.subtitle}
+                                    price={this.state.currentCard.price}
+                                    url={this.state.currentCard.url}
+                                    hide={this.hideSelectedCard}
+                                    />
+                            </Modal>
         
         return(
             <div className={classes.ProductsContainer}>
-                {modal}
+                {this.state.showSelectedCard && selectedCard}
                 {products}
             </div>
         )

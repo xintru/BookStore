@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from './CartControls.module.css';
+import classes from './CartControls.module.scss';
 
 // Элементы управления для отправки в корзину.
 

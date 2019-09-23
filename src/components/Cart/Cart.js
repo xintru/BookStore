@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from './Cart.module.css';
+import classes from './Cart.module.scss';
 
 // Этот компонент - корзина. Если общая сумма покупок равна нулю, то выводится сообщение, что корзина пуста.
 // Переход к расчету - только кнопка. Можно конечно реализовать POST в какую-нибудь базу данных.
@@ -19,7 +19,7 @@ const Cart = props => {
     const content = props.orders.map(order => {
         return (
             <div>
-                <li>{order.title}: {order.price * order.value} $</li>
+                <li>{order.title}...({`${order.price} x ${order.value}`}): {order.price * order.value} $</li>
             </div>
         )     
     });
@@ -30,7 +30,6 @@ const Cart = props => {
                 {content}
             </ol>
             {cartUI}
-            
         </div>
     );
 };

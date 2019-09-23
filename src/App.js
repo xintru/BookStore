@@ -3,7 +3,8 @@ import {connect} from 'react-redux';
 
 import Products from './containers/Products/Products';
 import {initStart} from './store/actions/actions';
-import classes from  './App.module.css';
+import classes from  './App.module.scss';
+import Modal from './components/UI/Modal/Modal';
 import Cart from './components/Cart/Cart';
 
 // Основной контейнер, в котором хранится все приложение.
@@ -17,23 +18,25 @@ class App extends Component {
     this.props.initStart();
   }
 
-  onCartToggle = () => {
-    this.setState({showCart: !this.state.showCart})
+  onCartShow = () => {
+    this.setState({showCart: true})
+  }
+
+  onCartHide = () => {
+    this.setState({showCart: false})
   }
 
   render() {
-    let cart = null;
-    if (this.state.showCart) {
-      cart = <Cart orders={this.props.orders} sum={this.props.sum} />
-    }
-
+    let cart = <Modal show={this.state.showCart} hide={this.onCartHide} className={classes.Cart} cart={true}>
+                  <Cart orders={this.props.orders} sum={this.props.sum} />
+              </Modal>
     return (
       <div>
         <header className={classes.Header}>
-            <button className={classes.Cart} onClick={this.onCartToggle}><i className="fa fa-shopping-cart"></i> {this.props.orderCount}</button>
+            <button className={classes.CartIcon} onClick={this.onCartShow}><i className="fa fa-shopping-cart"></i> {this.props.orderCount}</button>
             <h1>SomeLogo</h1>
         </header>
-        {cart}
+        {this.state.showCart && cart}
         <Products />
       </div>
       
