@@ -18,7 +18,9 @@ class selectedCard extends Component {
     }
 
     removeItem = () => {
-        this.setState({value: this.state.value - 1})
+        if (this.state.value > 1) {
+            this.setState({value: this.state.value - 1});
+        }
     }
 
     pushToCart = () => {
