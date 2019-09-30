@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 
 
 import Spinner from '../../components/UI/Spinner/Spinner';
@@ -11,55 +11,45 @@ import SelectedCard from '../SelectedCard/SelectedCard';
 // Основной контейнер, в котором выводятся карточки из GET запроса, а также
 // модальное окно.
 
-class Products extends Component {
+const Products = props => {
+    const [currentCard, setCurrentCard] = useState({});
+    const [showCard, setShowCard] = useState(false);
 
-    state = {
-        showSelectedCard: false,
-        currentCard: {}
-    }
-    
-    showSelectedCard = ( index ) => {
-        this.setState({currentCard: this.props.data[index]})
-        this.setState({showSelectedCard: true});
-    }
-
-    hideSelectedCard= () => {
-        this.setState({showSelectedCard: false})
-        this.setState({currentCard: {}})
-    }
-
-    render() {
-        let products;
-        if (this.props.data) {
-            products = this.props.data.map((product, i) => <ProductCard img={product.image}
-                                                                        key={product.isbn13}
-                                                                        title={product.title}
-                                                                        showModal={this.showSelectedCard}
-                                                                        index={i} />);
-        }
-
-        if(this.props.loading) {
-            products = <Spinner />
-        }
-
-        const selectedCard = <Modal show={this.state.showSelectedCard} hide={this.hideSelectedCard}>
-                                <SelectedCard title={this.state.currentCard.title}
-                                    img={this.state.currentCard.image}
-                                    subtitle={this.state.currentCard.subtitle}
-                                    price={this.state.currentCard.price}
-                                    url={this.state.currentCard.url}
-                                    hide={this.hideSelectedCard}
-                                    />
-                            </Modal>
-        
-        return(
-            <div className={classes.ProductsContainer}>
-                {this.state.showSelectedCard && selectedCard}
-                {products}
-            </div>
-        )
+    let products = <Spinner />;
+    if (props.data && !props.loading) {
+        products = props.data.map((product, i) => <ProductCard
+            img={product.image}
+            key={product.isbn13}
+            title={product.title}
+            showModal={() => {
+                setCurrentCard(props.data[i]);
+                setShowCard(true);
+            }}
+            index={i} />);
     }
 
+    const selectedCard = <Modal show={showCard} hide={() => {
+        setCurrentCard({});
+        setShowCard(false);
+    }}>
+        <SelectedCard title={currentCard.title}
+            img={currentCard.image}
+            subtitle={currentCard.subtitle}
+            price={currentCard.price}
+            url={currentCard.url}
+            hide={() => {
+                setCurrentCard({});
+                setShowCard(false);
+            }}
+        />
+    </Modal >
+
+    return (
+        <div className={classes.ProductsContainer}>
+            {showCard && selectedCard}
+            {products}
+        </div>
+    )
 }
 
 const mapStateToProps = state => {
