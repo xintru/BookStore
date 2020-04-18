@@ -1,0 +1,27 @@
+.listContainer {
+  padding: 2rem;
+
+  h2 {
+    text-align: left;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid black;
+  }
+}
+
+.list {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 220px);
+  grid-gap: 1.25rem;
+  justify-content: space-between;
+}
+
+.dialogContent {
+  height: 400px;
+}
+
+@media (max-width: 540px) {
+  .list {
+    grid-template-columns: repeat(auto-fill, 100%);
+  }
+}

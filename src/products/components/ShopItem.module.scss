@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+.card {
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px 0 #555155;
+  padding: 8px;
+  font-family: 'Lato', sans-serif;
+  background-color: white;
+
+  h3 {
+    font-size: 14px;
+    height: 15%;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid black;
+    margin: 0;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 540px) {
+  .card h3 {
+    font-size: 18px;
+  }
+
+  .card:hover {
+    transform: none;
+  }
+}

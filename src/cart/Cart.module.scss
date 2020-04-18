@@ -1,0 +1,30 @@
+.cartContainer {
+  padding: 1rem;
+  min-height: 20vh;
+  max-height: 85vh;
+  overflow: auto;
+}
+
+.empty {
+  margin-top: 25%;
+}
+
+.total {
+  text-align: end;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 550px) {
+  .cartContainer {
+    min-height: 50vh;
+  }
+
+  .empty {
+    margin-top: 50%;
+  }
+}

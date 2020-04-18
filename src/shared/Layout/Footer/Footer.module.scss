@@ -1,0 +1,26 @@
+@import '../../../theme/palette.scss';
+
+.footer {
+  height: 2rem;
+  background-color: $primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 5px 1px $shadow;
+  a,
+  h5 {
+    margin: 0;
+    text-decoration: none;
+    color: rgb(44, 44, 44);
+  }
+
+  a:hover,
+  a:active {
+    color: rgba(44, 44, 44, 0.753);
+  }
+
+  a:visited {
+    color: rgb(44, 44, 44);
+    text-decoration: none;
+  }
+}

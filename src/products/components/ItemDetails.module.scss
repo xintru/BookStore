@@ -1,0 +1,73 @@
+@import '../../theme/palette.scss';
+
+.dialogContainer {
+  box-sizing: border-box;
+  padding: 1rem;
+  text-align: center;
+}
+
+.imageFallback {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hiddenImage {
+  display: none;
+}
+
+.controls {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.counter {
+  input {
+    box-sizing: border-box;
+    outline: none;
+    border: 2px solid $primary;
+    width: 35px;
+    margin: 0 0.5rem;
+    border-radius: 5px;
+    height: 35px;
+    text-align: center;
+  }
+
+  button {
+    width: 35px;
+  }
+}
+
+@media (max-width: 550px) {
+  .dialogContainer {
+    max-height: 90vh;
+    overflow: auto;
+  }
+
+  h2 {
+    font-size: 1.1em;
+    margin: 0.4em 0;
+  }
+
+  h3 {
+    margin: 0.4em 0;
+  }
+
+  img,
+  .imageFallback {
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  .imageFallback {
+    height: 200px;
+  }
+
+  p {
+    margin: 0.4em 0;
+    font-size: 0.8em;
+  }
+}
